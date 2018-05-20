@@ -7,8 +7,8 @@ kernel = np.ones((5,5),np.uint8)
 
 print(kernel)
 
-nparray = np.array([90,100,20])
-print(nparray)
+# nparray = np.array([90,100,20])
+# print(nparray)
 # dilation = cv2.dilate(img,kernel,iterations = 1)
 gradient = cv2.morphologyEx(img, cv2.MORPH_GRADIENT, kernel)
 # erosion = cv2.erode(img,kernel,iterations = 1)
