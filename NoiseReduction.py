@@ -3,17 +3,13 @@ import numpy as np
 
 cap = cv2.VideoCapture(0)
 backgroundSubtracter = cv2.createBackgroundSubtractorMOG2()
-
+kernel = np.ones( (25,25),np.float32 ) / 625
 while(1):
 
     # Take each frame
     _, frame = cap.read()
     grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-
-  
-    kernel = np.ones( (25,25),np.float32 ) / 625
     smoothed = cv2.filter2D(grayFrame,-1,kernel)
-
     cv2.imshow(" Original " , frame)
     cv2.imshow(" Kernel  smoothed" , smoothed)
     subtractedBackground = backgroundSubtracter.apply(smoothed)
