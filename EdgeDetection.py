@@ -13,8 +13,8 @@ while(1):
     
     mask = cv2.inRange(hsv, lower_red, upper_red)
     res = cv2.bitwise_and(frame,frame, mask= mask)
-    cv2.imshow('REd',res)
-    cv2.imshow('Original',frame)
+    # cv2.imshow('REd',res)
+    # cv2.imshow('Original',frame)
     edges = cv2.Canny(frame,100,200)
     cv2.imshow('Edges',edges)
 

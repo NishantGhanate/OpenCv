@@ -17,7 +17,7 @@ while(1):
     smoothed = cv2.filter2D(imgray,-1,kernelSmooth)
     fgmask = fgbg.apply(smoothed)
     dilation = cv2.dilate(fgmask,kernel,iterations = 2)
-    erosion = cv2.erode(dilation,kernel,iterations = 2)
+    erosion = cv2.erode(dilation,kernel,iterations = 5)
 
     ret,thresh = cv2.threshold(erosion,127,255,0)
     im2, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
