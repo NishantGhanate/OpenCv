@@ -1,7 +1,8 @@
 import numpy as np
 import cv2
 
-cap = cv2.VideoCapture('H:/Github/OpenCv/Research/videos/car.mp4')
+# cap = cv2.VideoCapture('H:/Github/OpenCv/Research/videos/car.mp4')
+cap = cv2.VideoCapture(0)
 fgbg = cv2.createBackgroundSubtractorMOG2()
 kernel = np.ones((3,3),np.uint8)
 kernelSmooth = np.ones( (25,25),np.float32 ) / 625
