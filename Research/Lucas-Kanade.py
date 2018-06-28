@@ -42,6 +42,7 @@ while(1):
        mask = cv2.line(mask, (a,b),(c,d), color[i].tolist(), 2)
        frame = cv2.circle(frame,(a,b),5,color[i].tolist(),-1)
        img = cv2.add(frame,mask)
+       cv2.flip(img, 1)
        cv2.imshow('frame',img)
    
        
