@@ -33,8 +33,8 @@ while(1):
     # bilateral = cv2.bilateralFilter( res , 15 , 75 , 15 )
     # cv2.imshow( "bilateral blur " , bilateral )
 
-    # denoised_gray = cv2.fastNlMeansDenoising(grayFrame, None, 9, 13)
-    # cv2.imshow(" Blur " , denoised_gray)
+    denoised_gray = cv2.fastNlMeansDenoising(grayFrame, None, 9, 13)
+    cv2.imshow(" Blur " , denoised_gray)
     
     if  cv2.waitKey(27) & 0xFF == ord('q'):
         break

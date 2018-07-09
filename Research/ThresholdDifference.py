@@ -24,7 +24,7 @@ print(diff1.sum())
 diff2 = cv2.absdiff(black,black2)
 print(diff2.sum())
 
-
+print(white)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

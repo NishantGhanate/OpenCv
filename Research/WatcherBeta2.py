@@ -21,8 +21,8 @@ presentFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
 pixelDifference = 125000
 timeCheck = datetime.now().strftime('%Ss')
-
-while(1):
+ret = True
+while(ret):
     ret, img = cap.read()
     imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     smoothed = cv2.filter2D(imgray,-1,kernelSmooth)
