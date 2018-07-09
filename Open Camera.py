@@ -26,4 +26,5 @@ while True:
     key = cv2.waitkey(27)
     if key == 27:
         cv2.destroyWindow(WindowName)
+        cap.release()
         break

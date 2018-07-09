@@ -1,14 +1,18 @@
 import numpy as np
 import cv2
-
+import os 
 #download the cascades 
 # multiple cascades: https://github.com/Itseez/opencv/tree/master/data/haarcascades
 #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_eye.xml
 #https://github.com/Itseez/opencv/blob/master/data/haarcascades/haarcascade_frontalface_default.xml
 
+scriptDir = os.path.dirname(os.path.realpath(__file__))
+face = scriptDir + os.path.sep + "haarcascade_frontalface_default.xml"
+eyes = scriptDir + os.path.sep + "haarcascade_eye.xml"
+
 #load cascade xml file itno classifier 
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier(face)
+eye_cascade = cv2.CascadeClassifier(eyes)
 
 cap = cv2.VideoCapture(0)
 
@@ -26,12 +30,20 @@ while True:
         
         # detect eyes inside face 
         eyes = eye_cascade.detectMultiScale(roi_gray)
+        
         for (ex,ey,ew,eh) in eyes:
+            print(eyes)
             cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
 
+        # if not eyes[:1]:
+        #     print("Eyes not found")
+        # else :
+        #     
+
+        
+
     cv2.imshow('img',img)
-    k = cv2.waitKey(30) & 0xff 
-    if k == 27:
+    if cv2.waitKey(30) & 0xff == ord('q'):
         break
 
 cap.release()

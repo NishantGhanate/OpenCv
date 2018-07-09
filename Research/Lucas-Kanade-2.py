@@ -9,7 +9,7 @@ kernelSmooth = np.ones( (25,25),np.float32 ) / 625
 
 # params for ShiTomasi corner detection
 feature_params = dict( maxCorners = 1,
-                        qualityLevel = 0.3,
+                        qualityLevel = 0.8,
                         minDistance = 7,
                         blockSize = 7 )
 
@@ -58,12 +58,15 @@ while(1):
     good_new = p1[st==1]
     good_old = p0[st==1]
 
+    
+    color = [0, 155, 31,1]  
     # draw the tracks
     for i,(new,old) in enumerate(zip(good_new,good_old)):
        a,b = new.ravel()
-       c,d = old.ravel()       
-       old_mask = cv2.line(old_mask, (a,b),(c,d), color[i].tolist(), 5)
-       frame = cv2.circle(frame,(a,b),5,color[i].tolist(),-1)
+       c,d = old.ravel()
+          
+       old_mask = cv2.line(old_mask, (a,b),(c,d), color, 5)
+       frame = cv2.circle(frame,(a,b),5,color,-1)
        img = cv2.add(frame,old_mask)
        img = cv2.flip(img,1)
        cv2.imshow('frame',img)
