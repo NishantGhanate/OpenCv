@@ -14,16 +14,17 @@ camera = cv2.VideoCapture(0)
 WindowName = "Movement Indicator" 
 
 
-#While True because to see continously 
-while True:
+ret = True
+
+while (ret):
 	#Cauz Tuples  set , ret = retry & frame = succesor 
     ret,frame = camera.read()
 	# cv2.putText(frame,datetime.now(),(10,500),font, 4,(255,255,255),2,cv2.LINE_AA)
 	#Load the window with windowname and videoFeed
-    cv2.imShow(WindowName,frame)
+    cv2.imshow(WindowName,frame)
 	
 	#On key 27 [Esc] terminate the program 
-    key = cv2.waitkey(27)
+    key = cv2.waitKey(27)
     if key == 27:
         cv2.destroyWindow(WindowName)
         cap.release()
