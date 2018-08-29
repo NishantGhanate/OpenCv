@@ -38,3 +38,62 @@ for i in range(imageHeight):
         
 
 print(bin(n).replace("0b", ""))
+
+
+
+ # we us -1 to check last bit in array if it doesnt match replace it msg bit and increment msg bit index 
+        if r[-1] != Bits[i]:
+            print(r)
+            r = re.sub(r[-1]+'$', Bits[i] , r)
+            print(r)
+            r = int(r,2) 
+            Red[h][w] = r
+            i = i + 1
+            # to avoid out of bound expection we will terminate as index reaches its last index
+            if i >= Bitslen:
+                loop = False
+                break
+                
+       # if it matches move the index forward          
+        else : 
+            i = i+1
+            if i >= Bitslen:
+                loop = False
+                break
+            
+        if g[-1] != Bits[i]:
+            g = re.sub(g[-1]+'$', Bits[i] , g)
+            g = int(g,2)
+            Green[h][w] = g
+            i = i + 1
+            if i >= Bitslen:
+                loop = False
+                break
+        else : 
+            i = i+1
+            if i >= Bitslen:
+                loop = False
+                break
+            
+        if b[-1] != Bits[i]:
+            b = re.sub(b[-1]+'$', Bits[i] , b)
+            b = int(b,2)
+            Blue[h][w] = b
+            i = i + 1
+            if i >= Bitslen:
+                loop = False
+                break
+        else : 
+            i = i+1
+            if i >= Bitslen:
+                loop = False
+                break
+
+
+# scriptDir = os.path.dirname(os.path.realpath('__file__'))
+
+# img1 = cv2.merge([Red,Green,Blue])
+
+
+# cv2.imwrite(scriptDir + os.path.sep +'output'  + '.jpg' ,img1 )
+                       
