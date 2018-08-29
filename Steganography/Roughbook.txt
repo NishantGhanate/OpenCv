@@ -1,0 +1,40 @@
+
+st = 'Nishant'
+st = [ord(c) for c in st]
+print(st)
+print(type(st))
+print(type(st[0]))
+
+binaryMsg = [ bin(i) for i in st]
+
+print(type(binaryMsg))
+print(type(binaryMsg[0]))
+
+for b in range(len(binaryMsg)):
+    if binaryMsg[b][-1] == '0':
+        print( binaryMsg[b])
+        binaryMsg[b] = re.sub('0$', '1', binaryMsg[b])
+        print( binaryMsg[b])
+
+
+
+
+
+msg = [int(b,2) for b in binaryMsg]
+print(msg)
+
+stringMsg = [chr(m) for m in msg]
+print(stringMsg)
+
+
+for i in range(imageHeight):
+    print(r[i])
+
+
+for i in range(imageHeight):
+#     print(i)
+    for j in range(imageWidth):
+        print(r[i][j])
+        
+
+print(bin(n).replace("0b", ""))
