@@ -96,4 +96,25 @@ print(bin(n).replace("0b", ""))
 
 
 # cv2.imwrite(scriptDir + os.path.sep +'output'  + '.jpg' ,img1 )
+
+
+for h in range(imageHeight):
+    
+    for w in range(imageWidth):
+        r = Dec2bin(Red[h][w])
+        if i > len(msgBits):
+                break
+        else:
+            if r[-1] != msgBits[i]:
+                print("before bit ")
+                print(r)
+                r = re.sub(r[-1]+'$', msgBits[i] , r) 
+                print("change bit ".format(r))
+            
+                Red[h][w] = int(r,2) 
+                i = i+1           
+            else:
+                i = i+1
+            
+        
                        
