@@ -10,7 +10,9 @@ import re
 
 scriptDir = os.path.dirname(os.path.realpath('__file__'))
 
-img = cv2.imread('H:\Github\OpenCv\Steganography\output.png')
+working = 'H:\Github\OpenCv\Steganography\output.png'
+
+img = cv2.imread('H:\Github\OpenCv\Research\images\Hiils_encoded.jpg')
 
 imageHeight , imageWidth , Channel = img.shape
 

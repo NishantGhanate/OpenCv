@@ -12,7 +12,7 @@ import os
 # In[2]:
 
 
-img = cv2.imread("H:/Github/OpenCv/Research/images/home.png")
+img = cv2.imread("H:/Github/OpenCv/Research/images/bg5.jpg")
 
 imageHeight , imageWidth , colorChannel = img.shape
 
